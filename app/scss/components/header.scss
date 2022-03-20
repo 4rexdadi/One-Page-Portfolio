@@ -1,0 +1,16 @@
+@use "../globals" as *;
+@use "../util" as *;
+
+%flex-layout {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+
+.navbar {
+	@extend %flex-layout;
+	padding: $base-padding;
+	box-shadow: $base-box-shadow;
+}
