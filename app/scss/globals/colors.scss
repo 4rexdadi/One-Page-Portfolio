@@ -1,4 +1,29 @@
 :root {
-	--white: hsl(0, 0%, 100%);
-	--black: hsl(0, 0%, 0%);
+	--primary: #004643;
+	--secondary: #f9bc60;
+	--font-color: #abd1c6;
+	--headline: #fffffe;
+	--btn-text: #001e1d;
+	--main: #e8e4e6;
+	--tertiary: #e16162;
+	--stroke: #001e1d;
+	--primary-opposite: #232946;
+	--primary-light: #045854;
+	--img-primary: url(/img/ss3.jpeg);
+	--form-color: #abd1c6;
+}
+
+.body.dark_blue_theme {
+	--primary: #232946;
+	--secondary: #eebbc3;
+	--font-color: #b8c1ec;
+	--headline: #fffffe;
+	--btn-text: #232946;
+	--main: #b8c1ec;
+	--tertiary: #e16162;
+	--stoke: #121629;
+	--primary-opposite: #004643;
+	--primary-light: #202955;
+	--img-primary: url(/img/ss1.jpeg);
+	--form-color: #d4d8f0;
 }

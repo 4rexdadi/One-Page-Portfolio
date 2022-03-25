@@ -2,7 +2,7 @@
 
 // 640px, 1150px, 1400px
 $breakpoints-up: (
-	"medium": "40em",
+	"medium": "44em",
 	"large": "71.875em",
 	"xlarge": "87.5em",
 );
@@ -63,13 +63,20 @@ $breakpoints: (
 		@content;
 	}
 }
+
+@mixin breakpoint-d($bp: 0) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
 .hide_for_mobile {
 	@include breakpoint-down(medium) {
 		display: none !important;
 	}
 }
 .hide_for_desktop {
-	@include breakpoint-up(large) {
+	@include breakpoint-up(medium) {
 		display: none !important;
 	}
 }

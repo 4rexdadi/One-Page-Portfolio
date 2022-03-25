@@ -1,5 +1,6 @@
 @use "../globals" as *;
 @use "../util" as *;
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@900&display=swap");
 
 %flex-layout {
 	width: 100%;
@@ -7,10 +8,255 @@
 	align-items: center;
 	justify-content: space-between;
 	box-sizing: border-box;
+	flex-direction: column;
 }
 
+header {
+	// Breakpoint for mobile- upward
+	@include breakpoint($bp: rem(705)) {
+		box-shadow: $base-box-shadow;
+	}
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 200;
+	background: var(--primary);
+	transition: transform 1s;
+}
+
+.primary_nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: rem(50);
+	width: 100%;
+	color: var(--font-color);
+	max-width: rem(1100);
+
+	.logo {
+		cursor: pointer;
+		height: 50px;
+		width: 50px;
+		border-radius: 40%;
+		transition: all 400ms ease;
+
+		&:hover {
+			#body{
+				fill: var(--secondary);
+			}
+
+			#arrow{
+				fill :var(--secondary);
+			}
+		}
+
+		svg {
+			height: 50px;
+			width: 50px;
+		}
+
+		#body, #arrow {
+			fill: var(--font-color);
+			transition: all 400ms ease;
+		}
+		#name, #dot {
+			fill: var(--secondary);
+		}
+	}
+
+	.hamburger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+
+		span {
+			position: relative;
+			width: 24px;
+			height: 2px;
+			transition: transform 0.3s ease-in-out;
+			background-color: var(--font-color);
+
+			&::after,
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				transition: transform 0.3s ease-in-out;
+				background-color: var(--font-color);
+			}
+
+			&::before {
+				transform: translateY(-7px);
+			}
+			&::after {
+				transform: translateY(7px);
+			}
+		}
+	}
+
+	.navbar {
+		@extend %flex-layout;
+		box-shadow: $base-box-shadow;
+		position: absolute;
+		min-height: 50vh;
+		top: rem(50);
+		transform: translateX(50%);
+		left: -50%;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 201;
+		background: var(--primary);
+		font-weight: 400;
+
+		span {
+			font-size: rem(13);
+			color: var(--secondary);
+			margin-right: 10px;
+			font-family: $secondary-font;
+		}
+
+		// Breakpoint for mobile - upward
+		@include breakpoint($bp: rem(705)) {
+			flex-direction: row;
+			position: unset;
+			visibility: visible;
+			opacity: 1;
+			min-height: auto;
+			width: auto;
+			transform: translate(0, 0);
+			box-shadow: none;
+
+			a {
+				margin-bottom: 0;
+				margin-left: rem(45);
+				transform: scale(1);
+			}
+		}
+
+		&__link {
+			margin-bottom: rem(44);
+			transition: color 300ms ease-in-out;
+			transform: scale(0);
+
+			&::after {
+				content: "";
+				position: absolute;
+				background: var(--secondary);
+				width: 100%;
+				height: 4px;
+				left: 0;
+				bottom: -0.8rem;
+				transform: scaleX(0);
+				transition: transform 200ms ease-in-out;
+				transform-origin: left;
+			}
+
+			&:hover {
+				color: var(--secondary);
+
+				&::after {
+					transform: scaleX(1);
+				}
+			}
+		}
+	}
+
+	.show-navbar {
+		visibility: visible;
+		opacity: 1;
+		transition: all 300ms ease-in-out;
+
+		a {
+			transform: scale(1);
+			transition: all 500ms ease-in-out;
+		}
+	}
+
+	.toggle {
+		border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		background-color: var(--secondary);
+		border: 5px solid var(--font-color);
+		margin-bottom: rem(30);
+		cursor: pointer;
+		transition: all 300ms ease;
+
+		&:hover {
+			border: 5px solid var(--primary-opposite);
+		}
+
+		// Breakpoint for mobile- upward
+		@include breakpoint($bp: rem(705)) {
+			margin-bottom: 0;
+			margin-left: rem(65);
+		}
+	}
+
+	//..........hamburger animation.........
+
+	.active {
+		span {
+			background: transparent;
+
+			&::before {
+				transform: rotate(45deg);
+			}
+			&::after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+// selected nav item
 .navbar {
-	@extend %flex-layout;
-	padding: $base-padding;
-	box-shadow: $base-box-shadow;
+	.sellected {
+		&::after {
+			transform: scaleX(1);
+		}
+	}
+}
+
+// hide header
+.header-hidden {
+	transform: translateY(-50px);
+	box-shadow: none;
+}
+
+// preloader
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--primary);
+	transition: opacity 0.75s, visibility 0.75s;
+	z-index: 201;
+
+	&::after {
+		content: "";
+		width: 75px;
+		height: 75px;
+		border: 15px solid #dddddd;
+		border-top-color: var(--secondary);
+		border-radius: 50%;
+		animation: loading 0.75s ease infinite;
+	}
+}
+
+.preloader--hidden {
+	opacity: 0;
+	visibility: hidden;
 }

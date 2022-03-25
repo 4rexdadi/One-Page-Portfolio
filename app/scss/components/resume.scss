@@ -1,0 +1,44 @@
+@use "../globals" as *;
+@use "../util" as *;
+
+.resumepage {
+    width: 100;
+    min-height: 100vh;
+}
+
+.resume {
+    &__title{
+        font-size: rem(26);
+        line-height: rem(29);
+        color: var(--headline);
+        align-items: center;
+        margin: 60px 0px 40px;
+        width: 100%;
+        white-space: nowrap;
+        display: flex;
+        position: relative;
+
+        &::before{
+            position: relative;
+            bottom: 4px;
+            counter-increment: section 2;
+            content: "0" counter(section) ".";
+            margin-right: 10px;
+            color: var(--secondary);
+            font-family: $secondary-font;
+            font-weight: 400;
+            font-size: rem(18);
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            top: -5px;
+            background-color: var(--secondary);
+        }
+    }
+}

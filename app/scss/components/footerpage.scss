@@ -1,0 +1,55 @@
+@use "../globals" as *;
+@use "../util" as *;
+
+
+.footerpage {
+    width: 100;
+    height: auto;
+}
+
+.footer {
+    padding: 50px;
+    text-align: center;
+    color: var(--font-color);
+
+    &__title {
+        font-size: rem(26);
+        line-height: rem(29);
+        color: var(--headline);
+        margin-bottom: 20px;
+    }
+
+    &__location {
+        transition: color 250ms ease;
+
+        &:hover {
+            color: var(--secondary);
+        }
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        fill: var(--font-color);
+        margin: 20px 0 70px 0;
+
+        svg {
+            transition: fill 250ms ease;
+
+            &:hover {
+                fill: var(--secondary);
+            }
+        }
+    }
+
+    &__gitlink {
+        color: var(--secondary);
+        transition: color 250ms ease;
+
+        &:hover {
+            color: var(--tertiary);
+        }
+    }
+}

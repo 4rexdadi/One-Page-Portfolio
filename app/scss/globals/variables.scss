@@ -1,7 +1,11 @@
 // theme colors
-$primary: #326dee !default;
-$secondary: #1ac886 !default;
-$font-color: #fff;
+$primary: #004643 !default;
+$secondary: #f9bc60 !default;
+$font-color: #abd1c6;
+$headline: #fffffe;
+$btn-text: #001e1d;
+$main: #e8e4e6;
+$tertiary: #e16162;
 
 // spacing
 $base-padding: 0.75rem !default;
@@ -9,6 +13,7 @@ $base-margin: 0.75rem !default;
 
 // box-shadow
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+$secondary-box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.3) !default;
 
 // font sizes
 $base-font-size: 1rem !default;
