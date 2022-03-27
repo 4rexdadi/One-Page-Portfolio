@@ -20,11 +20,17 @@ body {
 
 	&__intro {
 		font-weight: 400;
-		font-size: rem(14);
+		font-size: rem(12);
 		line-height: rem(18);
 		color: var(--secondary);
 		font-family: $secondary-font;
 		margin: 50px 0px 20px 2px;
+
+		// Breakpoint for tablet upward
+		@include breakpoint($bp: rem(500)) {
+			font-size: rem(14);
+			margin-left: 5px;
+		}
 	}
 
 	&__title {
@@ -32,25 +38,47 @@ body {
 		font-weight: 900;
 		line-height: rem(44);
 		color: var(--headline);
+		margin-top: 10px;
+
+		// Breakpoint for tablet upward
+		@include breakpoint($bp: rem(500)) {
+			font-size: rem(53);
+		}
+
+		// Breakpoint for desktop upward
+		@include breakpoint($bp: rem(900)) {
+			font-size: rem(61);
+			margin-top: 25px;
+		}
 	}
 
 	&__title2 {
 		margin-top: 10px;
-		font-size: rem(35);
+		font-size: rem(30);
 		line-height: rem(36);
 		color: var(--headline);
+
+		// Breakpoint for tablet upward
+		@include breakpoint($bp: rem(500)) {
+			font-size: rem(35);
+		}
+		
+		//Breakpoint for desktop upward
+		@include breakpoint($bp: rem(900)) {
+			font-size: rem(43);
+		}
 	}
 
 	&__details {
 		font-weight: 400;
-		font-size: rem(18);
-		line-height: rem(27);
+		font-size: rem(16);
+		line-height: rem(30);
 		color: var(--font-color);
 		margin-top: 20px;
 
 		a {
-			padding: 1px 12px;
-			font-size: rem(15);
+			padding: 1px 8px;
+			font-size: rem(13);
 			line-height: rem(14);
 			border-radius: 5px;
 			background: var(--primary-light);
@@ -64,10 +92,10 @@ body {
 	}
 
 	&__social{
-		margin-top: 20px;
+		margin-top: 30px;
 
 		svg {
-			margin-right: 10px;
+			margin-right: 15px;
 			fill: var(--font-color);
 			transition: fill 250ms ease;
 

@@ -2,18 +2,19 @@
 @use "../util" as *;
 
 .projectpage {
-    width: 100;
-    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
 }
 
 .project {
 
     &__title{
-        font-size: rem(26);
+        font-size: rem(30);
         line-height: rem(29);
         color: var(--headline);
         align-items: center;
-        margin: 10px 0px 40px;
+        margin: 10px 0px 80px;
         width: 100%;
         white-space: nowrap;
         display: flex;
@@ -46,11 +47,54 @@
     &__contents{
         display: grid;
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 100px;
+
+        // Breakpoint for tablet upward switch
+        @include breakpoint($bp: rem(705)) {
+            .work.switch {
+                flex-direction: row-reverse;
+
+                .work__info {
+                    text-align: left;
+                    padding: 10px 10px 5px;
+                    margin-right: -150px;
+                    width: 100%;
+                    margin-left: 0;
+
+                    // Breakpoint for tablet upward
+                    @include breakpoint($bp: rem(800)) {
+                        margin-right: -150px;
+                        width: 70%;
+                        margin-left: 0;
+                    }
+
+                    // Breakpoint for tablet upward
+                    @include breakpoint($bp: rem(900)) {
+                        margin-right: -100px;
+                        width: 50%;
+                        margin-left: 0;
+                    }
+                }
+
+                .work__svg {
+                    right: 3%;
+                    left: unset;
+                }
+            }
+        }
 
         .work {
             position: relative;
             box-shadow: $secondary-box-shadow;
+
+             // Breakpoint for tablet upward
+            @include breakpoint($bp: rem(705)) {
+                display: flex;
+                box-shadow: none;
+                flex-direction: row;
+                height: 100%;
+                width: 100%;
+            }
 
             &__svg {
                 position: absolute;
@@ -58,6 +102,13 @@
                 right: 10%;
                 top: 13%;
                 transform: scale(1.5);
+
+                // Breakpoint for tablet upward
+                @include breakpoint($bp: rem(705)) {
+                    right: unset;
+                    left: 3%;
+                    top: 7%;
+                }
             }
 
             &__img{
@@ -70,7 +121,9 @@
                 background-size: cover;
                 z-index: -10;
                 opacity: 0.5;
-                filter: blur(3px);
+                mix-blend-mode: multiply;
+                filter: grayscale(100%) contrast(1) brightness(90%);
+                
                 
                 &::after {
                     content: "";
@@ -82,6 +135,30 @@
                     background-color: var(--primary);
                     z-index: 3000;
                     opacity: 0.5;
+                    transition: all 250ms 150ms ease;
+                }
+
+                 // Breakpoint for tablet upward
+                @include breakpoint($bp: rem(705)) {
+                    display: block;
+                    position: relative;
+                    z-index: -10;
+                    height: rem(415);
+                    width: rem(630);
+                    z-index: 1;
+                    mix-blend-mode: lighten;
+                    box-shadow: $secondary-box-shadow;
+                    transition: all 250ms ease;
+
+                    &:hover {
+                        filter: none;
+                        opacity: 1;
+                        mix-blend-mode: darken;
+
+                        &::after {
+                            opacity: 0;
+                        }
+                    }
                 }
             }
 
@@ -91,9 +168,31 @@
                 font-family: $base-font;
                 background: transparent;
 
+                // Breakpoint for tablet upward
+                @include breakpoint($bp: rem(705)) {
+                    align-self: center;
+                    width: 100%;
+                    padding: 10px 10px 5px;
+                    text-align: right;
+                    height: auto;
+                    margin-left: -150px;
+                }
+
+                // Breakpoint for tablet upward
+                @include breakpoint($bp: rem(800)) {
+                    margin-left: -150px;
+                    width: 70%;
+                }
+
+                // Breakpoint for tablet upward
+                @include breakpoint($bp: rem(900)) {
+                    margin-left: -100px;
+                    width: 50%;
+                }
+
                 &__intro {
-                    font-size: rem(16);
-                    margin-bottom: 5px;
+                    font-size: rem(14);
+                    margin-bottom: 12px;
                     margin-top: 10px;
                     font-weight: 400;
                     font-family: $secondary-font;
@@ -101,24 +200,36 @@
                 }
 
                 &__title {
-                    font-size: rem(24);
                     font-weight: 600;
                     line-height: rem(26);
-                    font-size: clamp(24px, 5vw, 28px);
+                    font-size: clamp(18px, 5vw, 28px);
                     margin-bottom: 10px;
                     color: var(--headline);
                 }
 
                 &__description {
                     padding: 20px 0;
-                    font-size: rem(18);
+                    font-size: rem(16);
                     font-weight: 400;
-                    line-height: rem(23);
+                    line-height: rem(30);
+
+
+                    // Breakpoint for tablet upward
+                    @include breakpoint($bp: rem(705)) {
+                        background-color: var(	--primary-light);
+                        // background-color: var(--form-color);
+                        // color: var(--primary);
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        z-index: 2;
+                        position: relative;
+                        box-shadow: $secondary-box-shadow;
+                    }
                 }
 
                 &__tools {
                     font-family: $secondary-font;
-                    font-size: rem(13);
+                    font-size: rem(14);
                     font-weight: 400;
                     line-height: rem(17);
                     margin-bottom: 10px;

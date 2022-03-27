@@ -2,18 +2,23 @@
 @use "../util" as *;
 
 .contactpage {
-    width: 100;
-    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    padding: 40px 0 0 0;
 }
 
 .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &__title{
-        font-size: rem(26);
+        font-size: rem(30);
         line-height: rem(29);
-        color: var(--font-color);
+        color: var(--headline);
         align-items: center;
-        margin: 0px 0px 40px;
+        margin: 0px 0px 80px;
         width: 100%;
         white-space: nowrap;
         display: flex;
@@ -45,17 +50,17 @@
 
     &__intro {
         font-weight: 400;
-		font-size: rem(14);
+		font-size: rem(12);
 		line-height: rem(18);
 		color: var(--secondary);
 		font-family: $secondary-font;
-		margin: 50px 0px 20px 2px;
+		margin: 0 0px 20px 2px;
         text-align: center;
     }
 
     &__info {
         font-weight: 600;
-		font-size: rem(40);
+		font-size: rem(25);
 		line-height: rem(40);
 		color: var(--headline);
 		margin: 20px 0;
@@ -64,8 +69,8 @@
 
     &__details {
         font-weight: 400;
-		font-size: rem(18);
-		line-height: rem(23);
+		font-size: rem(16);
+		line-height: rem(30);
 		color: var(--font-color);
         margin-bottom: 50px;
         text-align: center;
@@ -80,6 +85,9 @@
         align-items: center;
         padding: 40px 0;
         border-radius: 5px;
+        max-width: rem(700);
+        width: 100%;
+        box-shadow: $secondary-box-shadow;
 
         &__contents {
             position: relative;
@@ -87,7 +95,7 @@
 
             &:hover {
                 label {
-                    font-size: rem(14);
+                    font-size: rem(12);
                     color: var(--font-color);
                 }
             }

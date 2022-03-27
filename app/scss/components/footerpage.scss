@@ -3,7 +3,7 @@
 
 
 .footerpage {
-    width: 100;
+    width: 100%;
     height: auto;
 }
 
@@ -13,7 +13,7 @@
     color: var(--font-color);
 
     &__title {
-        font-size: rem(26);
+        font-size: rem(24);
         line-height: rem(29);
         color: var(--headline);
         margin-bottom: 20px;
@@ -21,6 +21,8 @@
 
     &__location {
         transition: color 250ms ease;
+        font-family: $secondary-font;
+        font-size: rem(12);
 
         &:hover {
             color: var(--secondary);
@@ -47,6 +49,7 @@
     &__gitlink {
         color: var(--secondary);
         transition: color 250ms ease;
+        font-size: rem(14);
 
         &:hover {
             color: var(--tertiary);

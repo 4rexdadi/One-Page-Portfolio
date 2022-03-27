@@ -168,6 +168,8 @@ header {
 		}
 	}
 
+	
+	
 	.show-navbar {
 		visibility: visible;
 		opacity: 1;
@@ -178,6 +180,7 @@ header {
 			transition: all 500ms ease-in-out;
 		}
 	}
+
 
 	.toggle {
 		border-radius: 50%;
@@ -230,6 +233,7 @@ header {
 	transform: translateY(-50px);
 	box-shadow: none;
 }
+
 
 // preloader
 .preloader {

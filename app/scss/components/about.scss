@@ -2,19 +2,20 @@
 @use "../util" as *;
 
 .aboutpage {
-    width: 100;
-    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    padding: 0 0 40px 0;
 }
 
 .about {
     font-family: $base-font;
 
     &__title{
-        font-size: rem(26);
+        font-size: rem(30);
         line-height: rem(29);
         color: var(--headline);
         align-items: center;
-        margin: 10px 0px 40px;
+        margin: 10px 0px 80px;
         width: 100%;
         white-space: nowrap;
         display: flex;
@@ -46,11 +47,14 @@
 
     &__info {
         color: var(--font-color);
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: rem(30);
     }
 
     &__skills{
         font-family: $secondary-font;
-        font-size: rem(13);
+        font-size: rem(14);
         line-height: rem(17);
         font-weight: 400;
         color: var(--font-color);

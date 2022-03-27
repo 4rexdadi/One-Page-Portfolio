@@ -1,6 +1,17 @@
 const hamburger = document.querySelector(".hamburger");
 const showNavbar = document.querySelector(".navbar");
 const bodyOverflow = document.querySelector(".body");
+const closeNav = document.querySelectorAll(".navbar__link")
+
+
+// close navbar after a click 
+closeNav.forEach((i) => {
+    i.addEventListener('click', () => { 
+		showNavbar.classList.remove("show-navbar");
+		bodyOverflow.classList.remove("bodyOverflow");
+		hamburger.classList.remove("active");
+	})
+})
 
 hamburger.addEventListener("click", () => {
 	hamburger.classList.toggle("active");
