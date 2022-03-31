@@ -11,10 +11,14 @@
 	flex-direction: column;
 }
 
+.shadow {
+	box-shadow: $base-box-shadow;
+}
+
 header {
 	// Breakpoint for mobile- upward
 	@include breakpoint($bp: rem(705)) {
-		box-shadow: $base-box-shadow;
+		//box-shadow: $base-box-shadow;
 	}
 
 	position: fixed;
@@ -33,7 +37,21 @@ header {
 	min-height: rem(50);
 	width: 100%;
 	color: var(--font-color);
-	max-width: rem(1100);
+	max-width: rem(1500);
+	padding-inline: rem(12);
+	margin-inline: auto;
+
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(1300)) {
+		padding-inline: rem(40);
+		transform: translate(0, 0);
+	}
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(1600)) {
+		padding-inline: rem(0);
+		transform: translate(0, 0);
+	}
+
 
 	.logo {
 		cursor: pointer;
@@ -43,12 +61,12 @@ header {
 		transition: all 400ms ease;
 
 		&:hover {
-			#body{
+			#body {
 				fill: var(--secondary);
 			}
 
-			#arrow{
-				fill :var(--secondary);
+			#arrow {
+				fill: var(--secondary);
 			}
 		}
 
@@ -57,11 +75,13 @@ header {
 			width: 50px;
 		}
 
-		#body, #arrow {
+		#body,
+		#arrow {
 			fill: var(--font-color);
 			transition: all 400ms ease;
 		}
-		#name, #dot {
+		#name,
+		#dot {
 			fill: var(--secondary);
 		}
 	}
@@ -168,8 +188,6 @@ header {
 		}
 	}
 
-	
-	
 	.show-navbar {
 		visibility: visible;
 		opacity: 1;
@@ -180,7 +198,6 @@ header {
 			transition: all 500ms ease-in-out;
 		}
 	}
-
 
 	.toggle {
 		border-radius: 50%;
@@ -198,6 +215,12 @@ header {
 
 		// Breakpoint for mobile- upward
 		@include breakpoint($bp: rem(705)) {
+			margin-bottom: 0;
+			margin-left: rem(40);
+		}
+
+		// Breakpoint for mobile- upward
+		@include breakpoint($bp: rem(740)) {
 			margin-bottom: 0;
 			margin-left: rem(65);
 		}
@@ -233,7 +256,6 @@ header {
 	transform: translateY(-50px);
 	box-shadow: none;
 }
-
 
 // preloader
 .preloader {

@@ -1,17 +1,27 @@
 const hamburger = document.querySelector(".hamburger");
 const showNavbar = document.querySelector(".navbar");
 const bodyOverflow = document.querySelector(".body");
-const closeNav = document.querySelectorAll(".navbar__link")
+const closeNav = document.querySelectorAll(".navbar__link");
+const formInput = document.querySelectorAll(".form-input");
 
+// form label turn small on click
+formInput.forEach((i) => {
+	const formLabel = document.querySelectorAll(".form-label");
+	formLabel.forEach((label) => {
+		i.addEventListener("click", () => {
+			label.style.fontSize = "12px";
+		});
+	});
+});
 
-// close navbar after a click 
+// close navbar after a click
 closeNav.forEach((i) => {
-    i.addEventListener('click', () => { 
+	i.addEventListener("click", () => {
 		showNavbar.classList.remove("show-navbar");
 		bodyOverflow.classList.remove("bodyOverflow");
 		hamburger.classList.remove("active");
-	})
-})
+	});
+});
 
 hamburger.addEventListener("click", () => {
 	hamburger.classList.toggle("active");
@@ -67,6 +77,11 @@ Toggle.addEventListener("click", () => {
 			header.classList.add("header-hidden");
 		} else {
 			header.classList.remove("header-hidden");
+			header.classList.add("shadow");
+		}
+
+		if (lastScrollY < 100){
+			header.classList.remove("shadow");
 		}
 
 		lastScrollY = window.scrollY;

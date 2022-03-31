@@ -2,86 +2,86 @@
 @use "../util" as *;
 
 .aboutpage {
-    width: 100%;
-    height: auto;
-    padding: 0 0 40px 0;
+	width: 100%;
+	height: auto;
+	padding: 0 0 40px 0;
 }
 
 .about {
-    font-family: $base-font;
+	font-family: $base-font;
 
-    &__title{
-        font-size: rem(30);
-        line-height: rem(29);
-        color: var(--headline);
-        align-items: center;
-        margin: 10px 0px 80px;
-        width: 100%;
-        white-space: nowrap;
-        display: flex;
-        position: relative;
+	&__title {
+		font-size: rem(30);
+		line-height: rem(29);
+		color: var(--headline);
+		align-items: center;
+		margin: 10px 0px 80px;
+		width: 100%;
+		white-space: nowrap;
+		display: flex;
+		position: relative;
 
-        &::before{
-            position: relative;
-            bottom: 4px;
-            counter-increment: section 0;
-            content: "0" counter(section) ".";
-            margin-right: 10px;
-            color: var(--secondary);
-            font-family: $secondary-font;
-            font-weight: 400;
-            font-size: rem(18);
-        }
+		&::before {
+			position: relative;
+			bottom: 4px;
+			counter-increment: section 0;
+			content: "0" counter(section) ".";
+			margin-right: 10px;
+			color: var(--secondary);
+			font-family: $secondary-font;
+			font-weight: 400;
+			font-size: rem(18);
+		}
 
-        &::after{
-            content: "";
-            display: block;
-            position: relative;
-            width: 300px;
-            height: 1px;
-            margin-left: 20px;
-            top: -5px;
-            background-color: var(--secondary);
-        }
-    }
+		&::after {
+			content: "";
+			display: block;
+			position: relative;
+			width: 300px;
+			height: 1px;
+			margin-left: 20px;
+			top: -5px;
+			background-color: var(--secondary);
+		}
+	}
 
-    &__info {
-        color: var(--font-color);
-        font-size: rem(16);
-        font-weight: 400;
-        line-height: rem(30);
-    }
+	&__info {
+		color: var(--font-color);
+		font-size: rem(16);
+		font-weight: 400;
+		line-height: rem(30);
+	}
 
-    &__skills{
-        font-family: $secondary-font;
-        font-size: rem(14);
-        line-height: rem(17);
-        font-weight: 400;
-        color: var(--font-color);
-        display: grid;
-        grid-template-columns: repeat(2, minmax(140px, 200px));
-        gap: 0px 10px;
-        padding: 0px;
-        margin: 20px 0px 0px;
-        overflow: hidden;
-        list-style: none;
+	&__skills {
+		font-family: $secondary-font;
+		font-size: rem(14);
+		line-height: rem(17);
+		font-weight: 400;
+		color: var(--font-color);
+		display: grid;
+		grid-template-columns: repeat(2, minmax(140px, 200px));
+		gap: 0px 10px;
+		padding: 0px;
+		margin: 20px 0px 0px;
+		overflow: hidden;
+		list-style: none;
 
-        li{
-            position: relative;
-            margin-bottom: 10px;
-            padding-left: 20px;
-            font-family: $secondary-font;
-            font-size: rem(13);
-            cursor: default;
+		li {
+			position: relative;
+			margin-bottom: 10px;
+			padding-left: 20px;
+			font-family: $secondary-font;
+			font-size: rem(13);
+			cursor: default;
 
-            &::before{
-                content: "▹";
-                position: absolute;
-                left: 0px;
-                color: var(--secondary);
-                font-size: rem(13);
-                line-height: rem(12);
-            }
-        }
-    }
+			&::before {
+				content: "▹";
+				position: absolute;
+				left: 0px;
+				color: var(--secondary);
+				font-size: rem(13);
+				line-height: rem(12);
+			}
+		}
+	}
 }

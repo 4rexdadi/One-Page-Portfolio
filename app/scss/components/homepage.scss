@@ -1,5 +1,5 @@
-@use "../globals" as *;
-@use "../util" as *;
+@use "../globals"as *;
+@use "../util"as *;
 
 body {
 	position: relative;
@@ -10,103 +10,58 @@ body {
 .homepage {
 	min-height: 100vh;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	width: 100%;
+	position: relative;
+
+	.direction-svg {
+		position: absolute;
+		bottom: 10%;
+		right: 10px;
+		fill: var(--secondary);
+		animation: bounce 1s ease alternate infinite;
+
+		// Breakpoint for desktop upward
+		@include breakpoint($bp: rem(700)) {
+			display: none;
+		}
+	}
 }
 
 .home {
 	font-family: $base-font;
-
-	&__intro {
-		font-weight: 400;
-		font-size: rem(12);
-		line-height: rem(18);
-		color: var(--secondary);
-		font-family: $secondary-font;
-		margin: 50px 0px 20px 2px;
-
-		// Breakpoint for tablet upward
-		@include breakpoint($bp: rem(500)) {
-			font-size: rem(14);
-			margin-left: 5px;
-		}
-	}
+	width: 100%;
+	height: 500px;
+	text-align: center;
 
 	&__title {
-		font-size: rem(45);
-		font-weight: 900;
-		line-height: rem(44);
+		font-weight: 700;
 		color: var(--headline);
-		margin-top: 10px;
-
-		// Breakpoint for tablet upward
-		@include breakpoint($bp: rem(500)) {
-			font-size: rem(53);
-		}
-
-		// Breakpoint for desktop upward
-		@include breakpoint($bp: rem(900)) {
-			font-size: rem(61);
-			margin-top: 25px;
-		}
+		font-size: clamp(42px, 11vw, 80px);
 	}
 
-	&__title2 {
-		margin-top: 10px;
-		font-size: rem(30);
-		line-height: rem(36);
+	&__info {
+		font-weight: 700;
 		color: var(--headline);
-
-		// Breakpoint for tablet upward
-		@include breakpoint($bp: rem(500)) {
-			font-size: rem(35);
-		}
-		
-		//Breakpoint for desktop upward
-		@include breakpoint($bp: rem(900)) {
-			font-size: rem(43);
-		}
+		color: var(--font-color);
+		color: var(--secondary);
+		font-family: $secondary-font;
+		font-size: clamp(18px, 1.7vw, 40px);
+		line-height: rem(35);
+		margin: 120px 0 0 0;
 	}
 
 	&__details {
-		font-weight: 400;
-		font-size: rem(16);
-		line-height: rem(30);
+		margin-inline: auto;
 		color: var(--font-color);
-		margin-top: 20px;
-
-		a {
-			padding: 1px 8px;
-			font-size: rem(13);
-			line-height: rem(14);
-			border-radius: 5px;
-			background: var(--primary-light);
-			font-family: $secondary-font;
-			transition: all 250ms ease-in-out;
-
-			&:hover {
-				color: var(--secondary);
-			}
-		}
+		max-width: rem(631);
+		line-height: rem(30);
+		font-size: rem(16);
 	}
 
-	&__social{
-		margin-top: 30px;
-
-		svg {
-			margin-right: 15px;
-			fill: var(--font-color);
-			transition: fill 250ms ease;
-
-			&:hover{
-				fill: var(--secondary);
-			}
-		}
-	}
-
-	&__button{
+	&__button {
 		overflow: hidden;
+		display: inline-block;
 	}
 
 	&__cta {
@@ -143,6 +98,98 @@ body {
 			opacity: 0;
 			z-index: -20;
 			transition: all 250ms ease-in-out;
+		}
+	}
+}
+
+
+.home__social {
+	position: fixed;
+	display: none;
+	flex-direction: column;
+	bottom: 0;
+	left: rem(10);
+	right: auto;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	gap: 10px;
+
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(708)) {
+		display: flex;
+	}
+
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(1300)) {
+		left: rem(60);
+	}
+
+
+	&::after {
+		content: "";
+		display: block;
+		width: 1px;
+		height: 150px;
+		margin: 0px auto;
+		background: var(--secondary);
+	}
+
+	svg {
+		margin: 0;
+		fill: var(--font-color);
+		transition: fill 250ms ease;
+
+		&:hover {
+			fill: var(--secondary);
+		}
+	}
+}
+
+.home__email {
+	position: fixed;
+	bottom: 0;
+	right: rem(13);
+	left: auto;
+	z-index: 1000;
+	display: none;
+
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(708)) {
+		display: block;
+	}
+
+	// Breakpoint for desktop upward
+	@include breakpoint($bp: rem(1300)) {
+		right: rem(63);
+	}
+
+	.link {
+		position: relative;
+		align-items: center;
+		-moz-box-align: center;
+		display: flex;
+		flex-direction: column;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 1px;
+			height: 150px;
+			margin: 0px auto;
+			background: var(--secondary);
+		}
+
+		a {
+			writing-mode: vertical-rl;
+			font-family: $secondary-font;
+			transition: all 250ms ease-in-out;
+			color: var(--font-color);
+			font-size: rem(14);
+
+			&:hover {
+				color: var(--secondary);
+			}
 		}
 	}
 }

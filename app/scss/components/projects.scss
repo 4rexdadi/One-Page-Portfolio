@@ -1,252 +1,271 @@
-@use "../globals" as *;
-@use "../util" as *;
+@use "../globals"as *;
+@use "../util"as *;
 
 .projectpage {
-    width: 100%;
-    height: auto;
-    padding: 40px 0;
+	width: 100%;
+	height: auto;
+	padding: 40px 0;
 }
 
 .project {
+	&__title {
+		font-size: rem(30);
+		line-height: rem(29);
+		color: var(--headline);
+		align-items: center;
+		margin: 10px 0px 80px;
+		width: 100%;
+		white-space: nowrap;
+		display: flex;
+		position: relative;
 
-    &__title{
-        font-size: rem(30);
-        line-height: rem(29);
-        color: var(--headline);
-        align-items: center;
-        margin: 10px 0px 80px;
-        width: 100%;
-        white-space: nowrap;
-        display: flex;
-        position: relative;
+		&::before {
+			position: relative;
+			bottom: 4px;
+			counter-increment: section 1;
+			content: "0" counter(section) ".";
+			margin-right: 10px;
+			color: var(--secondary);
+			font-family: $secondary-font;
+			font-weight: 400;
+			font-size: rem(18);
+		}
 
-        &::before{
-            position: relative;
-            bottom: 4px;
-            counter-increment: section 1;
-            content: "0" counter(section) ".";
-            margin-right: 10px;
-            color: var(--secondary);
-            font-family: $secondary-font;
-            font-weight: 400;
-            font-size: rem(18);
-        }
+		&::after {
+			content: "";
+			display: block;
+			position: relative;
+			width: 300px;
+			height: 1px;
+			margin-left: 20px;
+			top: -5px;
+			background-color: var(--secondary);
+		}
+	}
 
-        &::after{
-            content: "";
-            display: block;
-            position: relative;
-            width: 300px;
-            height: 1px;
-            margin-left: 20px;
-            top: -5px;
-            background-color: var(--secondary);
-        }
-    }
+	&__contents {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 100px;
 
-    &__contents{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 100px;
+		.work.project-1 {
+			.work__img {
+				background-image: url(/img/ss1.jpeg);
+			}
+		}
 
-        // Breakpoint for tablet upward switch
-        @include breakpoint($bp: rem(705)) {
-            .work.switch {
-                flex-direction: row-reverse;
+		.work.project-2 {
+			.work__img {
+				background-image: url(/img/work2.png);
+			}
+		}
 
-                .work__info {
-                    text-align: left;
-                    padding: 10px 10px 5px;
-                    margin-right: -150px;
-                    width: 100%;
-                    margin-left: 0;
+		.work.project-3 {
+			.work__img {
+				background-image: url(/img/ss3.jpeg);
+			}
+		}
 
-                    // Breakpoint for tablet upward
-                    @include breakpoint($bp: rem(800)) {
-                        margin-right: -150px;
-                        width: 70%;
-                        margin-left: 0;
-                    }
+		// Breakpoint for tablet upward switch
+		@include breakpoint($bp: rem(705)) {
+			.work.switch {
+				flex-direction: row-reverse;
 
-                    // Breakpoint for tablet upward
-                    @include breakpoint($bp: rem(900)) {
-                        margin-right: -100px;
-                        width: 50%;
-                        margin-left: 0;
-                    }
-                }
+				.work__info {
+					text-align: left;
+					padding: 10px 10px 5px;
+					margin-right: -150px;
+					width: 100%;
+					margin-left: 0;
 
-                .work__svg {
-                    right: 3%;
-                    left: unset;
-                }
-            }
-        }
+					// Breakpoint for tablet upward
+					@include breakpoint($bp: rem(800)) {
+						margin-right: -150px;
+						width: 70%;
+						margin-left: 0;
+					}
 
-        .work {
-            position: relative;
-            box-shadow: $secondary-box-shadow;
+					// Breakpoint for tablet upward
+					@include breakpoint($bp: rem(900)) {
+						margin-right: -100px;
+						width: 50%;
+						margin-left: 0;
+					}
+				}
 
-             // Breakpoint for tablet upward
-            @include breakpoint($bp: rem(705)) {
-                display: flex;
-                box-shadow: none;
-                flex-direction: row;
-                height: 100%;
-                width: 100%;
-            }
+				.work__svg {
+					right: 3%;
+					left: unset;
+				}
+			}
+		}
 
-            &__svg {
-                position: absolute;
-                fill: var(--secondary);
-                right: 10%;
-                top: 13%;
-                transform: scale(1.5);
+		.work {
+			position: relative;
+			box-shadow: $secondary-box-shadow;
 
-                // Breakpoint for tablet upward
-                @include breakpoint($bp: rem(705)) {
-                    right: unset;
-                    left: 3%;
-                    top: 7%;
-                }
-            }
+			// Breakpoint for tablet upward
+			@include breakpoint($bp: rem(705)) {
+				display: flex;
+				box-shadow: none;
+				flex-direction: row;
+				height: 100%;
+				width: 100%;
+			}
 
-            &__img{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-image: var(--img-primary);
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: cover;
-                z-index: -10;
-                opacity: 0.5;
-                mix-blend-mode: multiply;
-                filter: grayscale(100%) contrast(1) brightness(90%);
-                
-                
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    left: 0;
-                    top: 0;
-                    background-color: var(--primary);
-                    z-index: 3000;
-                    opacity: 0.5;
-                    transition: all 250ms 150ms ease;
-                }
+			&__svg {
+				position: absolute;
+				fill: var(--secondary);
+				right: 10%;
+				top: 13%;
+				transform: scale(1.5);
 
-                 // Breakpoint for tablet upward
-                @include breakpoint($bp: rem(705)) {
-                    display: block;
-                    position: relative;
-                    z-index: -10;
-                    height: rem(415);
-                    width: rem(630);
-                    z-index: 1;
-                    mix-blend-mode: lighten;
-                    box-shadow: $secondary-box-shadow;
-                    transition: all 250ms ease;
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(705)) {
+					display: none;
+				}
+			}
 
-                    &:hover {
-                        filter: none;
-                        opacity: 1;
-                        mix-blend-mode: darken;
+			&__img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: cover;
+				z-index: -10;
+				opacity: 0.5;
+				mix-blend-mode: multiply;
+				filter: grayscale(100%) contrast(1) brightness(50%);
 
-                        &::after {
-                            opacity: 0;
-                        }
-                    }
-                }
-            }
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(705)) {
+					filter: grayscale(100%) contrast(1) brightness(90%);
+					border-radius: 5px;
+				}
 
-            &__info{
-                padding: 25px 25px 20px;
-                color: var(--font-color);
-                font-family: $base-font;
-                background: transparent;
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					background-color: var(--primary);
+					z-index: 3000;
+					opacity: 0.5;
+					transition: all 250ms 150ms ease;
+				}
 
-                // Breakpoint for tablet upward
-                @include breakpoint($bp: rem(705)) {
-                    align-self: center;
-                    width: 100%;
-                    padding: 10px 10px 5px;
-                    text-align: right;
-                    height: auto;
-                    margin-left: -150px;
-                }
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(705)) {
+					display: block;
+					position: relative;
+					z-index: -10;
+					height: rem(415);
+					width: rem(630);
+					z-index: 1;
+					mix-blend-mode: lighten;
+					box-shadow: $secondary-box-shadow;
+					transition: all 250ms ease;
 
-                // Breakpoint for tablet upward
-                @include breakpoint($bp: rem(800)) {
-                    margin-left: -150px;
-                    width: 70%;
-                }
+					&:hover {
+						filter: none;
+						opacity: 1;
+						mix-blend-mode: darken;
 
-                // Breakpoint for tablet upward
-                @include breakpoint($bp: rem(900)) {
-                    margin-left: -100px;
-                    width: 50%;
-                }
+						&::after {
+							opacity: 0;
+						}
+					}
+				}
+			}
 
-                &__intro {
-                    font-size: rem(14);
-                    margin-bottom: 12px;
-                    margin-top: 10px;
-                    font-weight: 400;
-                    font-family: $secondary-font;
-                    color: var(--secondary);
-                }
+			&__info {
+				padding: 25px 25px 20px;
+				color: var(--font-color);
+				font-family: $base-font;
+				background: transparent;
 
-                &__title {
-                    font-weight: 600;
-                    line-height: rem(26);
-                    font-size: clamp(18px, 5vw, 28px);
-                    margin-bottom: 10px;
-                    color: var(--headline);
-                }
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(705)) {
+					align-self: center;
+					width: 100%;
+					padding: 10px 10px 5px;
+					text-align: right;
+					height: auto;
+					margin-left: -150px;
+				}
 
-                &__description {
-                    padding: 20px 0;
-                    font-size: rem(16);
-                    font-weight: 400;
-                    line-height: rem(30);
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(800)) {
+					margin-left: -150px;
+					width: 70%;
+				}
 
+				// Breakpoint for tablet upward
+				@include breakpoint($bp: rem(900)) {
+					margin-left: -100px;
+					width: 50%;
+				}
 
-                    // Breakpoint for tablet upward
-                    @include breakpoint($bp: rem(705)) {
-                        background-color: var(	--primary-light);
-                        // background-color: var(--form-color);
-                        // color: var(--primary);
-                        padding: 20px;
-                        margin-bottom: 20px;
-                        z-index: 2;
-                        position: relative;
-                        box-shadow: $secondary-box-shadow;
-                    }
-                }
+				&__intro {
+					font-size: rem(14);
+					margin-bottom: 12px;
+					margin-top: 10px;
+					font-weight: 400;
+					font-family: $secondary-font;
+					color: var(--secondary);
+				}
 
-                &__tools {
-                    font-family: $secondary-font;
-                    font-size: rem(14);
-                    font-weight: 400;
-                    line-height: rem(17);
-                    margin-bottom: 10px;
-                }
+				&__title {
+					font-weight: 600;
+					line-height: rem(26);
+					font-size: clamp(18px, 5vw, 28px);
+					margin-bottom: 10px;
+					color: var(--headline);
+				}
 
-                &__links {
-                    svg {
-                        fill: var(--font-color);
-                        transition: fill 250ms ease;
-                        margin : 10px 10px 10px 0;
+				&__description {
+					padding: 20px 0;
+					font-size: rem(16);
+					font-weight: 400;
+					line-height: rem(30);
 
-                        &:hover {
-                            fill: var(--secondary);
-                        }
-                    }
-                }
-            }
-        }
-    }
+					// Breakpoint for tablet upward
+					@include breakpoint($bp: rem(705)) {
+						background-color: var(--primary-light);
+						// background-color: var(--form-color);
+						// color: var(--primary);
+						padding: 20px;
+						margin-bottom: 20px;
+						z-index: 2;
+						position: relative;
+						box-shadow: $secondary-box-shadow;
+						border-radius: 3px;
+					}
+				}
+
+				&__tools {
+					font-family: $secondary-font;
+					font-size: rem(14);
+					font-weight: 400;
+					line-height: rem(17);
+					margin-bottom: 10px;
+				}
+
+				&__links {
+					svg {
+						fill: var(--font-color);
+						transition: fill 250ms ease;
+						margin: 10px 10px 10px 0;
+
+						&:hover {
+							fill: var(--secondary);
+						}
+					}
+				}
+			}
+		}
+	}
 }
